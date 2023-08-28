@@ -6,7 +6,11 @@
   </header>
 
   <main>
-    <UsersList :class="coloredRows ? 'colored-rows' : ''" :users="sortUsersByCountry" />
+    <UsersList
+      :class="coloredRows ? 'colored-rows' : ''"
+      :users="sortUsersByCountry" 
+      @remove-user="removeUser"
+      />
   </main>
 </template>
 
@@ -27,6 +31,12 @@ const sortUsersByCountry = computed(() => {
 getUsers().then((response) => {
   users.value = response.results;
 })
+
+function removeUser(email) {
+  users.value = users.value.filter((user) => user.email !== email);
+}
+
+
 </script>
 
 <style scoped>

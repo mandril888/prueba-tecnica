@@ -10,12 +10,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="user in users" :key="user.id">
+      <tr v-for="user in users" :key="user.email">
         <td><img :src="user.picture.thumbnail" :alt="user.name.first" /></td>
         <td>{{ user.name.first }}</td>
         <td>{{ user.name.last }}</td>
         <td>{{ user.location.country }}</td>
-        <td><button>Borrar</button></td>
+        <td><button @click="removeUser(user.email)">Borrar</button></td>
       </tr>
     </tbody>
   </table>
@@ -25,6 +25,11 @@
 defineProps({
   users: Object
 })
+
+const emit = defineEmits(["removeUser"]);
+const removeUser = (email) => {
+  emit("removeUser", email);
+};
 </script>
 
 <style scoped>
