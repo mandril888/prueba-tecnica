@@ -21,6 +21,19 @@ a,
   transition: 0.4s;
 }
 
+button {
+  padding: 10px 20px;
+  color: #fff;
+  font-size: 1.2rem;
+  background-color: #000;
+  border: none;
+  border-radius: 4px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
 @media (hover: hover) {
   a:hover {
     background-color: hsla(160, 100%, 37%, 0.2);

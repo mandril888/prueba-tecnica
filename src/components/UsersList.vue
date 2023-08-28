@@ -31,4 +31,12 @@ defineProps({
 th {
   font-weight: 800;
 }
+
+.colored-rows tbody tr:nth-child(odd) {
+  background-color: #333;
+}
+
+.colored-rows tbody tr:nth-child(even) {
+  background-color: #555;
+}
 </style>
