@@ -1,33 +1,40 @@
 <template>
   <h1>Prueba técnica</h1>
   <header>
-    <button @click="colorRows()">Colorear filas</button>
+    <button @click="coloredRows = !coloredRows">Colorear filas</button>
+    <button @click="sortedUsersByCountry = !sortedUsersByCountry;">Ordenar por país</button>
   </header>
 
   <main>
-    <UsersList :class="coloredRows ? 'colored-rows' : ''" :users="users" />
+    <UsersList :class="coloredRows ? 'colored-rows' : ''" :users="sortUsersByCountry" />
   </main>
 </template>
 
 <script setup>
 import getUsers from "./services/UsersRepository";
 import UsersList from "./components/UsersList.vue";
-import { ref } from "vue";
+import { computed, ref } from "vue";
 
 const users = ref([]);
-let coloredRows = ref(false);
+const coloredRows = ref(false);
+const sortedUsersByCountry = ref(false);
+const sortUsersByCountry = computed(() => {
+  return sortedUsersByCountry.value ? 
+    [...users.value].sort((a, b) => a.location.country.localeCompare(b.location.country))
+    : users.value;
+});
 
 getUsers().then((response) => {
   users.value = response.results;
 })
-
-function colorRows() {
-  coloredRows.value = !coloredRows.value;
-}
 </script>
 
 <style scoped>
 header {
   margin-bottom: 2rem;
+  width: 100%;
+  display: flex;
+  place-content: center;
+  gap: 1rem;
 }
 </style>
