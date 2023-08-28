@@ -34,6 +34,28 @@ button:hover {
   cursor: pointer;
 }
 
+input {
+  background-color: #333;
+  border: none;
+  color: #fff;
+  padding: 10px;
+  font-size: 1.1rem;
+}
+
+input::placeholder {
+  color: #fff;
+  font-style: italic;
+}
+
+.alert {
+  padding: 10px;
+  background-color: #555;
+  color: #fff;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
 @media (hover: hover) {
   a:hover {
     background-color: hsla(160, 100%, 37%, 0.2);

@@ -10,6 +10,9 @@
       </tr>
     </thead>
     <tbody>
+      <tr v-if="users.length === 0">
+        <td colspan="5" class="alert">No existen usuarios</td>
+      </tr>
       <tr v-for="user in users" :key="user.email">
         <td><img :src="user.picture.thumbnail" :alt="user.name.first" /></td>
         <td>{{ user.name.first }}</td>
