@@ -3,9 +3,9 @@
     <thead>
       <tr>
         <th>Foto</th>
-        <th>Nombre</th>
-        <th>Apellido</th>
-        <th>País</th>
+        <th class="pointer" @click="sortBy('name')">Nombre</th>
+        <th class="pointer" @click="sortBy('surname')">Apellido</th>
+        <th class="pointer" @click="sortBy('country')">País</th>
         <th>Acciones</th>
       </tr>
     </thead>
@@ -29,10 +29,9 @@ defineProps({
   users: Object
 })
 
-const emit = defineEmits(["removeUser"]);
-const removeUser = (email) => {
-  emit("removeUser", email);
-};
+const emit = defineEmits(["removeUser", "sortBy"]);
+const removeUser = (email) => { emit("removeUser", email) };
+const sortBy = (type) => { emit("sortBy", type) };
 </script>
 
 <style scoped>

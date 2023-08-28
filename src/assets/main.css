@@ -30,6 +30,7 @@ button {
   border-radius: 4px;
 }
 
+.pointer,
 button:hover {
   cursor: pointer;
 }
