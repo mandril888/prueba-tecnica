@@ -29,9 +29,13 @@ defineProps({
   users: Object
 })
 
-const emit = defineEmits(["removeUser", "sortBy"]);
-const removeUser = (email) => { emit("removeUser", email) };
-const sortBy = (type) => { emit("sortBy", type) };
+const emit = defineEmits(['removeUser', 'sortBy'])
+const removeUser = (email) => {
+  emit('removeUser', email)
+}
+const sortBy = (type) => {
+  emit('sortBy', type)
+}
 </script>
 
 <style scoped>
